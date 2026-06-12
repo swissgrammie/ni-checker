@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  # THE APRIL DRIFT ALARM (eng review 1A): this weekly run keeps the
+  # policy-coverage test firing even when nobody pushes. When the new tax
+  # year starts and policy.json lacks an entry, this goes red until fixed.
+  schedule:
+    - cron: '0 7 * * 1' # every Monday 07:00 UTC
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Unit tests (includes the April rates drift alarm)
+        run: npm test
+      - name: Build
+        run: npm run build
+      - name: Bundle budget (≤50KB gzipped JS)
+        run: npm run budget
+      - name: Install Playwright
+        if: github.event_name != 'schedule'
+        run: npx playwright install --with-deps chromium
+      - name: E2E (main journey + Pension Credit honest warning)
+        if: github.event_name != 'schedule'
+        run: npx playwright test
+      - name: Upload site artifact
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: test
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
