@@ -58,6 +58,7 @@ export function parseInputs(form: FormData): { inputs: Inputs | null; errors: Fi
   if (!expectsOtherRetirementIncome) errors.push({ field: 'expectsOtherRetirementIncome', message: 'Tell us about other retirement income — “not sure” is a fine answer.', recordCheckHelps: false });
 
   const startedNIBefore2016 = form.get('startedNIBefore2016') === 'yes';
+  const abroadNowOrGaps = form.get('abroadNowOrGaps') === 'yes';
 
   if (errors.length > 0 || !expectsToKeepWorking || !mayGetFreeCredits || !expectsOtherRetirementIncome) {
     return { inputs: null, errors };
@@ -87,6 +88,7 @@ export function parseInputs(form: FormData): { inputs: Inputs | null; errors: Fi
       mayGetFreeCredits,
       expectsOtherRetirementIncome,
       startedNIBefore2016,
+      abroadNowOrGaps,
     },
     errors: [],
   };

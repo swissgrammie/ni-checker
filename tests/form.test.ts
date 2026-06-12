@@ -17,6 +17,7 @@ const VALID = {
   mayGetFreeCredits: 'no',
   expectsOtherRetirementIncome: 'yes',
   startedNIBefore2016: 'no',
+  abroadNowOrGaps: 'no',
 };
 
 describe('parseInputs — happy path', () => {

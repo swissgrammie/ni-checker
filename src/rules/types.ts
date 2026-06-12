@@ -24,6 +24,10 @@ export interface Inputs {
   expectsOtherRetirementIncome: ThreeWay;
   /** Did their working life start before April 2016? Pre-2016 records have transitional rules. */
   startedNIBefore2016: boolean;
+  /** Lives abroad now, or some gap years were spent abroad. From April 2026 the
+   *  abroad rules tightened sharply (Class 2 abroad abolished; Class 3 abroad
+   *  needs 10 years UK residence/contributions). */
+  abroadNowOrGaps: boolean;
 }
 
 /*
@@ -59,6 +63,7 @@ export type ReasonCode =
   | 'NOT_FILLABLE_TOO_OLD'
   | 'CLASS_2_RATE'
   | 'PRE_2016_CAVEAT'
+  | 'ABROAD_RULES_CHANGED'
   | 'FILLING_HELPS'
   | 'CHECK_FORECAST_FIRST';
 

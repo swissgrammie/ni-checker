@@ -21,6 +21,7 @@ test('main journey: mid-career worker with gaps gets WORTH_CHECKING with facts',
   await page.check('#cred-2'); // no free credits
   await page.check('#inc-1'); // has other retirement income
   await page.check('#pre-2'); // started after 2016
+  await page.check('#abr-2'); // UK-based, no abroad gaps
 
   await page.click('#submit-btn');
 
@@ -50,6 +51,7 @@ test('validation: impossible totals get a guided recovery with the HMRC link', a
   await page.check('#cred-2');
   await page.check('#inc-1');
   await page.check('#pre-1');
+  await page.check('#abr-2');
   await page.click('#submit-btn');
 
   const summary = page.locator('.error-summary');

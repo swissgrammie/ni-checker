@@ -113,7 +113,7 @@ export const REASON_COPY: Record<ReasonCode, ReasonCopy> = {
   NOT_FILLABLE_TOO_OLD: {
     heading: 'Some of your gaps are probably too old to fill',
     body: () =>
-      'You can normally only pay for gaps from the last 6 tax years. Older gaps usually cannot be bought back — so decisions about recent gaps matter more.',
+      'You can normally only pay for gaps from the last 6 tax years. (You may remember people filling gaps all the way back to 2006 — that special window closed on 5 April 2025.) Older gaps usually cannot be bought back — so decisions about recent gaps matter more.',
     checklist: () => [
       'Your NI record shows exactly which years are still payable and the deadline for each.',
     ],
@@ -132,6 +132,16 @@ export const REASON_COPY: Record<ReasonCode, ReasonCopy> = {
       'Records that began before April 2016 use transitional rules (including “contracting out”), so a bought year sometimes adds less than the headline amount — or nothing. For you, the official forecast is not optional homework, it is the answer.',
     checklist: () => [
       'Your forecast shows exactly what each payable year would add for YOU — trust that number over any calculator, including this one.',
+    ],
+  },
+  ABROAD_RULES_CHANGED: {
+    heading: 'Living abroad? The rules just got much tougher',
+    body: () =>
+      'From 6 April 2026 the rules for paying voluntary NI from abroad changed sharply. The cheap Class 2 route for time abroad was abolished — people who topped up from overseas before then often paid around £180 a year; that option has gone. Paying Class 3 from abroad now normally requires 10 years of past UK residence or 10 years of paid contributions (it used to be 3). If you applied to HMRC before 6 April 2026, transitional protection may let you pay under the old rules until 5 April 2027 — that deadline matters.',
+    checklist: () => [
+      'Read HMRC leaflet NI38 (Social Security abroad) and apply with form CF83 — search "CF83" on GOV.UK.',
+      'If you applied before 6 April 2026, check your transitional protection and pay before 5 April 2027.',
+      'For abroad cases, speak to the Future Pension Centre (+44 191 218 3600 from outside the UK) before deciding anything.',
     ],
   },
   FILLING_HELPS: {

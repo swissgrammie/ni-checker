@@ -68,6 +68,7 @@ export function triage(inputs: Inputs, taxYearLabel: string, p: TaxYearPolicy): 
   );
 
   // Informational reasons accumulate regardless of category.
+  if (inputs.abroadNowOrGaps) reasons.push('ABROAD_RULES_CHANGED');
   if (inputs.olderGapYears > 0) reasons.push('NOT_FILLABLE_TOO_OLD');
   if (inputs.employment === 'self-employed-low') reasons.push('CLASS_2_RATE');
   if (inputs.startedNIBefore2016) reasons.push('PRE_2016_CAVEAT');

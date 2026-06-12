@@ -19,6 +19,7 @@ function base(overrides: Partial<Inputs> = {}): Inputs {
     mayGetFreeCredits: 'no',
     expectsOtherRetirementIncome: 'yes',
     startedNIBefore2016: false,
+    abroadNowOrGaps: false,
     ...overrides,
   };
 }
@@ -150,6 +151,16 @@ describe('informational reasons accumulate', () => {
   it('pre-2016 record adds PRE_2016_CAVEAT', () => {
     const v = triage(base({ startedNIBefore2016: true }), TY, p);
     expect(v.reasons).toContain('PRE_2016_CAVEAT');
+  });
+  it('abroad now or abroad gaps adds ABROAD_RULES_CHANGED without changing the category', () => {
+    const v = triage(base({ abroadNowOrGaps: true }), TY, p);
+    expect(v.category).toBe('WORTH_CHECKING');
+    expect(v.reasons).toContain('ABROAD_RULES_CHANGED');
+  });
+  it('abroad reason also fires on a PROBABLY_NOT verdict (rule change is never hidden)', () => {
+    const v = triage(base({ abroadNowOrGaps: true, qualifyingYears: 35 }), TY, p);
+    expect(v.category).toBe('PROBABLY_NOT');
+    expect(v.reasons).toContain('ABROAD_RULES_CHANGED');
   });
   it('free-credits hint is NOT added onto a PROBABLY_NOT verdict (no mixed message)', () => {
     const v = triage(

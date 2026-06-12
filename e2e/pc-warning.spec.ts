@@ -19,6 +19,7 @@ test('PC-bound user is told paying probably won’t help, before any cost pitch'
   await page.check('#cred-2'); // no free credits
   await page.check('#inc-2'); // NO other retirement income — the PC screen
   await page.check('#pre-1'); // pre-2016 record
+  await page.check('#abr-2'); // UK-based
 
   await page.click('#submit-btn');
 
