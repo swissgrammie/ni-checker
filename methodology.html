@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How this works — Forgotten Savers</title>
+  <meta name="description" content="Every formula, source and assumption behind the Forgotten Savers State Pension top-up checker, in plain English." />
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+<body>
+  <header class="site">
+    <div class="wordmark"><a href="./">Forgotten Savers</a></div>
+    <div class="strapline">Honest answers about your State Pension</div>
+  </header>
+  <main>
+    <h1>How this tool works</h1>
+    <p class="lede">Every number, rule and judgement in the checker, with sources. If you find an error, please tell us — see <a href="#corrections">corrections</a>.</p>
+
+    <h2>The numbers (2026/27 tax year)</h2>
+    <ul>
+      <li><strong>Voluntary Class 3 National Insurance:</strong> £18.40 per week, £956.80 for a full year. Source: <a href="https://www.gov.uk/voluntary-national-insurance-contributions/rates">GOV.UK voluntary NI rates</a>.</li>
+      <li><strong>Voluntary Class 2</strong> (self-employed, profits under the Small Profits Threshold of £7,105): £3.65 per week, £189.80 a year. Source: GOV.UK, as above.</li>
+      <li><strong>Full new State Pension:</strong> £241.30 per week. You need 35 qualifying years for the full amount; a minimum of 10 to get anything. Source: <a href="https://www.gov.uk/new-state-pension/what-youll-get">GOV.UK new State Pension</a>.</li>
+      <li><strong>Each qualifying year</strong> is worth 1/35 of the full pension: £241.30 ÷ 35 × 52 weeks ≈ <strong>£358 a year</strong>, for life, before tax.</li>
+      <li><strong>Break-even:</strong> £956.80 ÷ £358 ≈ 2.7 years; we show 3–4 years because pension income can be taxed.</li>
+      <li><strong>Pension Credit guarantee (single):</strong> about £238 per week. Source: <a href="https://www.gov.uk/pension-credit/what-youll-get">GOV.UK Pension Credit</a>.</li>
+    </ul>
+
+    <h2>The judgements</h2>
+    <ul>
+      <li><strong>The 10-year cliff.</strong> Below 10 qualifying years you get no State Pension at all, so a year that lifts you to 10 is worth far more than the headline £358 — and years that can never reach 10 are worth nothing.</li>
+      <li><strong>The 35-year cap.</strong> Years beyond 35 add nothing under the new State Pension (transitional rules can differ for pre-2016 records — see below).</li>
+      <li><strong>The 6-year window.</strong> You can normally only pay for gaps from the last 6 tax years.</li>
+      <li><strong>Free credits first.</strong> Child Benefit (child under 12), Carer's Credit and some benefits fill years for £0. We always point there before any paid route.</li>
+      <li><strong>The Pension Credit offset — the part almost nobody mentions.</strong> If your retirement income will rely on the State Pension alone, Pension Credit tops you up to about £238/week anyway, and extra State Pension you buy reduces that top-up roughly pound for pound. The full new State Pension (£241.30) is barely above the guarantee, so for many low earners a purchased year changes little or nothing. Pension Credit must be claimed, and around a third of those entitled don't claim — that nuance is in our copy too.</li>
+      <li><strong>Pre-2016 records.</strong> Transitional rules (including past "contracting out") mean a bought year can add less than £358, or nothing. For these records we say plainly: your official forecast is the answer, not this tool.</li>
+    </ul>
+
+    <h2>What this tool is and isn't</h2>
+    <p>This is general financial education and guidance. It does not recommend products, providers, or whether you personally should pay — it tells you what things cost, what the rules are, and exactly which free official checks settle your case:
+    <a href="https://www.gov.uk/check-state-pension">Check your State Pension forecast</a>,
+    <a href="https://www.gov.uk/check-national-insurance-record">check your NI record</a>,
+    and the Future Pension Centre on 0800 731 0175.</p>
+    <p><strong>Privacy:</strong> the check runs entirely on your device. Nothing you type is sent anywhere or stored. If we enable visitor counting it will be cookieless and will never include your answers.</p>
+
+    <h2 id="about">Who runs this</h2>
+    <p>Built by Graham Cunningham for the Forgotten Savers Foundation (proposed), a UK financial-resilience initiative for low-paid workers. We don't sell anything, take commissions, or collect your data.</p>
+
+    <h2 id="corrections">Corrections</h2>
+    <p>If any figure or rule on this site is wrong or out of date, we want to know. Open an issue on our public code repository (linked in the footer once published) — corrections are reviewed and deployed promptly, and the "rates last verified" date in the footer tells you how fresh the data is.</p>
+  </main>
+  <footer class="site">
+    <p><a href="./">Back to the checker</a></p>
+    <div class="partner-slot" data-partner="none"></div>
+  </footer>
+</body>
+</html>

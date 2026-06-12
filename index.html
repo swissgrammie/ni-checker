@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Should you top up your State Pension? — Forgotten Savers</title>
+  <meta name="description" content="A free, honest 2-minute check: could paying voluntary National Insurance increase your State Pension — or would it be money down the drain? No login, no data stored." />
+</head>
+<body>
+  <div id="banner-host"></div>
+  <noscript>
+    <div class="stale-banner" role="alert">
+      This tool needs JavaScript to run the check on your phone — nothing you type ever leaves your device.
+      Without JavaScript, you can still get the answers free and official:
+      <a href="https://www.gov.uk/check-state-pension">check your State Pension forecast</a> or call the
+      Future Pension Centre on 0800 731 0175.
+    </div>
+  </noscript>
+  <header class="site">
+    <div class="wordmark"><a href="./">Forgotten Savers</a></div>
+    <div class="strapline">Honest answers about your State Pension</div>
+  </header>
+  <main>
+    <h1>Should you top up your State Pension?</h1>
+    <p class="lede">
+      Missing National Insurance years can cost you thousands in State Pension — but paying to fill them
+      is sometimes a waste of money, and almost nobody tells you which is which.
+      Answer 8 quick questions and we’ll tell you straight: <strong>worth checking, probably not, or
+      what to find out first.</strong>
+    </p>
+    <p class="hint">
+      Nothing you enter leaves your phone. No login, no cookies on this form, no data stored.
+      This is general guidance, not financial advice — we’ll point you to the free official checks before
+      any money moves.
+    </p>
+
+    <div id="error-host"></div>
+
+    <form id="triage-form" novalidate>
+      <fieldset>
+        <label class="field-label" for="field-yearsToSPA">Roughly how many years until you reach State Pension age?</label>
+        <p class="hint">State Pension age is currently 66–68 depending on when you were born. A rough guess is fine. Enter 0 if you’ve reached it.</p>
+        <input type="number" id="field-yearsToSPA" name="yearsToSPA" min="0" max="55" inputmode="numeric" />
+      </fieldset>
+
+      <fieldset>
+        <label class="field-label" for="field-qualifyingYears">How many qualifying years of National Insurance do you have so far?</label>
+        <p class="hint">Your best guess — roughly the years you’ve worked, claimed certain benefits, or had Child Benefit. We’ll show you how to check the real number.</p>
+        <input type="number" id="field-qualifyingYears" name="qualifyingYears" min="0" max="60" inputmode="numeric" />
+      </fieldset>
+
+      <fieldset>
+        <label class="field-label" for="field-recentGapYears">How many gap years do you have in the last 6 tax years?</label>
+        <p class="hint">Years with no work, low earnings, or time abroad. These are the ones you can normally still pay for.</p>
+        <input type="number" id="field-recentGapYears" name="recentGapYears" min="0" max="6" inputmode="numeric" />
+      </fieldset>
+
+      <fieldset>
+        <label class="field-label" for="field-olderGapYears">How many gap years older than 6 years?</label>
+        <p class="hint">Enter 0 if none or not sure.</p>
+        <input type="number" id="field-olderGapYears" name="olderGapYears" min="0" max="60" inputmode="numeric" />
+      </fieldset>
+
+      <fieldset id="field-employment">
+        <legend>Which is closest to your work situation?</legend>
+        <div class="radio-row"><input type="radio" id="emp-1" name="employment" value="employed" /><label for="emp-1">Employed</label></div>
+        <div class="radio-row"><input type="radio" id="emp-2" name="employment" value="self-employed-low" /><label for="emp-2">Self-employed, profits under about £7,100 a year</label></div>
+        <div class="radio-row"><input type="radio" id="emp-3" name="employment" value="self-employed" /><label for="emp-3">Self-employed, profits above that</label></div>
+        <div class="radio-row"><input type="radio" id="emp-4" name="employment" value="not-working" /><label for="emp-4">Not working at the moment</label></div>
+      </fieldset>
+
+      <fieldset id="field-expectsToKeepWorking">
+        <legend>Do you expect to keep working (or claiming credits) most years until State Pension age?</legend>
+        <div class="radio-row"><input type="radio" id="work-1" name="expectsToKeepWorking" value="yes" /><label for="work-1">Yes</label></div>
+        <div class="radio-row"><input type="radio" id="work-2" name="expectsToKeepWorking" value="no" /><label for="work-2">No</label></div>
+        <div class="radio-row"><input type="radio" id="work-3" name="expectsToKeepWorking" value="unsure" /><label for="work-3">Not sure</label></div>
+      </fieldset>
+
+      <fieldset id="field-mayGetFreeCredits">
+        <legend>During your gap years, were you getting Child Benefit for a child under 12, or caring for someone 20+ hours a week?</legend>
+        <p class="hint">These can fill gaps for free — always worth checking before paying anything.</p>
+        <div class="radio-row"><input type="radio" id="cred-1" name="mayGetFreeCredits" value="yes" /><label for="cred-1">Yes</label></div>
+        <div class="radio-row"><input type="radio" id="cred-2" name="mayGetFreeCredits" value="no" /><label for="cred-2">No</label></div>
+        <div class="radio-row"><input type="radio" id="cred-3" name="mayGetFreeCredits" value="unsure" /><label for="cred-3">Not sure</label></div>
+      </fieldset>
+
+      <fieldset id="field-expectsOtherRetirementIncome">
+        <legend>When you retire, do you expect income besides the State Pension?</legend>
+        <p class="hint">For example a workplace or private pension, rental income, or a partner’s pension. This question matters more than any other on this page.</p>
+        <div class="radio-row"><input type="radio" id="inc-1" name="expectsOtherRetirementIncome" value="yes" /><label for="inc-1">Yes</label></div>
+        <div class="radio-row"><input type="radio" id="inc-2" name="expectsOtherRetirementIncome" value="no" /><label for="inc-2">No — just the State Pension</label></div>
+        <div class="radio-row"><input type="radio" id="inc-3" name="expectsOtherRetirementIncome" value="unsure" /><label for="inc-3">Not sure</label></div>
+      </fieldset>
+
+      <fieldset id="field-startedNIBefore2016">
+        <legend>Did you start working (paying National Insurance) before April 2016?</legend>
+        <div class="radio-row"><input type="radio" id="pre-1" name="startedNIBefore2016" value="yes" /><label for="pre-1">Yes</label></div>
+        <div class="radio-row"><input type="radio" id="pre-2" name="startedNIBefore2016" value="no" /><label for="pre-2">No</label></div>
+      </fieldset>
+
+      <button type="submit" class="primary" id="submit-btn">Get my answer</button>
+    </form>
+
+    <div id="results-host" aria-live="polite"></div>
+  </main>
+  <footer class="site">
+    <p class="verified" id="verified-on"></p>
+    <p>
+      <a href="./methodology.html">How this works (methodology &amp; sources)</a> ·
+      <a href="./methodology.html#about">Who runs this</a> ·
+      <a href="./methodology.html#corrections">Spotted an error?</a>
+    </p>
+    <p>
+      Forgotten Savers provides general financial education and guidance, not regulated financial advice.
+      Figures are checked against official sources; your personal numbers come from your
+      <a href="https://www.gov.uk/check-state-pension">official State Pension forecast</a>.
+    </p>
+    <div class="partner-slot" data-partner="none"><!-- co-brand lockup slot: activates only with a signed partner licensing agreement --></div>
+  </footer>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

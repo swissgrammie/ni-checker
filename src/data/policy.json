@@ -1,0 +1,36 @@
+{
+  "verifiedOn": "2026-06-12",
+  "sources": [
+    "https://www.gov.uk/voluntary-national-insurance-contributions/rates",
+    "https://www.gov.uk/new-state-pension/what-youll-get",
+    "https://www.gov.uk/pension-credit/what-youll-get",
+    "https://www.litrg.org.uk/working/self-employment/national-insurance-self-employed",
+    "https://www.moneyhelper.org.uk/en/pensions-and-retirement/state-pension/voluntary-national-insurance-contributions-and-the-state-pension"
+  ],
+  "taxYears": {
+    "2026-27": {
+      "startDate": "2026-04-06",
+      "endDate": "2027-04-05",
+      "class3WeeklyGBP": 18.4,
+      "class2WeeklyGBP": 3.65,
+      "newStatePensionWeeklyGBP": 241.3,
+      "pensionCreditGuaranteeSingleWeeklyGBP": 238.0,
+      "smallProfitsThresholdGBP": 7105,
+      "minQualifyingYears": 10,
+      "fullQualifyingYears": 35,
+      "backfillWindowYears": 6
+    },
+    "2025-26": {
+      "startDate": "2025-04-06",
+      "endDate": "2026-04-05",
+      "class3WeeklyGBP": 17.75,
+      "class2WeeklyGBP": 3.5,
+      "newStatePensionWeeklyGBP": 230.25,
+      "pensionCreditGuaranteeSingleWeeklyGBP": 227.1,
+      "smallProfitsThresholdGBP": 6845,
+      "minQualifyingYears": 10,
+      "fullQualifyingYears": 35,
+      "backfillWindowYears": 6
+    }
+  }
+}
