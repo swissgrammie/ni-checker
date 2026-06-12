@@ -11,8 +11,8 @@ through the free official checks (GOV.UK forecast, Future Pension Centre).
 
 ## Privacy
 Everything runs on your device. No login, no cookies, no data stored, no user input ever
-transmitted. Optional visitor counting (when enabled) is cookieless and counts only
-page views and an anonymous "completed" ping.
+transmitted. Visitor counting uses GoatCounter's cookieless pixel (no third-party script):
+anonymous page views plus an anonymous "completed" ping, nothing else.
 
 ## Architecture
 

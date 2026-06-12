@@ -1,21 +1,28 @@
 /*
- * Cookieless analytics (eng review 9A). Privacy contract, enforced by test:
- *  - no cookies, no localStorage, no fingerprinting
- *  - ONLY two events ever leave the device: a page view (handled by the
- *    GoatCounter script tag when configured) and a single "completed" ping
- *  - user INPUTS never appear in any request — the ping carries no payload
- *
- * ANALYTICS_ENDPOINT is empty until a GoatCounter (or compatible) account
- * is configured; everything is a no-op until then.
+ * Cookieless analytics (eng review 9A). Privacy contract:
+ *  - no cookies, no localStorage, no fingerprinting, no third-party script
+ *    (we use GoatCounter's pixel endpoint, not count.js)
+ *  - exactly two events ever leave the device: an anonymous page view and an
+ *    anonymous "completed" ping
+ *  - user INPUTS never appear in any request — the pings carry a path only,
+ *    never a payload
  */
-export const ANALYTICS_ENDPOINT = ''; // e.g. 'https://forgottensavers.goatcounter.com/count'
+export const ANALYTICS_ENDPOINT = 'https://swissgrammie.goatcounter.com/count';
 
-export function trackCompletion(): void {
+function ping(path: string): void {
   if (!ANALYTICS_ENDPOINT) return;
   try {
     const img = new Image();
-    img.src = `${ANALYTICS_ENDPOINT}?p=/triage-completed`;
+    img.src = `${ANALYTICS_ENDPOINT}?p=${encodeURIComponent(path)}`;
   } catch {
     // Analytics must never break the product.
   }
+}
+
+export function trackPageview(): void {
+  ping(window.location.pathname);
+}
+
+export function trackCompletion(): void {
+  ping('/triage-completed');
 }

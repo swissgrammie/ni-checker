@@ -4,10 +4,12 @@ import { triage } from './rules/engine';
 import { parseInputs, type FieldError } from './ui/form';
 import { renderVerdict } from './ui/results';
 import { staleBannerHTML } from './ui/banner';
-import { trackCompletion } from './ui/analytics';
+import { trackCompletion, trackPageview } from './ui/analytics';
 
 const policy = loadPolicy();
 const now = new Date();
+
+trackPageview();
 
 // Runtime staleness banner (8A) — renders before anything else.
 const bannerHost = document.getElementById('banner-host');
